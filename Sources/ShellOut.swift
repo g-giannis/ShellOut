@@ -34,7 +34,7 @@ import Dispatch
     process: Process = .init(),
     outputHandle: FileHandle? = nil,
     errorHandle: FileHandle? = nil,
-    shellType: ShellType = .bashPath
+    shellType: ShellType = .zshPath
 ) throws -> String {
     let command = "cd \(path.escapingSpaces) && \(command) \(arguments.joined(separator: " "))"
 
