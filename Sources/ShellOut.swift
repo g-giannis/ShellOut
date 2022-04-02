@@ -104,7 +104,7 @@ import Dispatch
     process: Process = .init(),
     outputHandle: FileHandle? = nil,
     errorHandle: FileHandle? = nil,
-    shellType: ShellType = .bashPath
+    shellType: ShellType = .zshPath
 ) throws -> String {
     return try shellOut(
         to: command.string,
@@ -389,7 +389,7 @@ extension ShellOutError: LocalizedError {
 // MARK: - Private
 
 private extension Process {
-    @discardableResult func launchBash(with command: String, outputHandle: FileHandle? = nil, errorHandle: FileHandle? = nil, shellType: ShellType = .bashPath) throws -> String {
+    @discardableResult func launchBash(with command: String, outputHandle: FileHandle? = nil, errorHandle: FileHandle? = nil, shellType: ShellType = .zshPath) throws -> String {
         // Default shell path is set to Bash
         launchPath = shellType.rawValue
         arguments = ["-c", command]
